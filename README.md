@@ -182,12 +182,12 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 
 ## 👨‍💻 Autor
 
-Desenvolvido com ❤️ por [Seu Nome]
+Desenvolvido com ❤️ por [Andrel]
 
 ---
 
 ⭐ Se você gostou deste projeto, deixe uma estrela!
 
-🐛 Encontrou um bug? [Abra uma issue](https://github.com/seu-usuario/calculadora-avancada/issues)
+🐛 Encontrou um bug? [Abra uma issue](https://github.com/SpeedyxBR/calculadora-avancada/issues)
 
 💡 Tem uma sugestão? [Contribua com o projeto](#-contribuição)
