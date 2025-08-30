@@ -25,11 +25,11 @@ export default function Calculator() {
 
   const buttonLayout = [
     ["C", "(", ")", "/"],
-    ["^", "√", "log", "%"],
     ["7", "8", "9", "*"],
     ["4", "5", "6", "-"],
     ["1", "2", "3", "+"],
-    ["n!", "0", ".", "="],
+    ["^", "√", "log", "n!"],
+    ["0", ".", "%", "="],
   ];
 
   const evaluateExpression = (expr: string) => {
@@ -48,9 +48,12 @@ export default function Calculator() {
         .replace(/(\d+)%/g, "($1/100)") // Porcentagem
         .replace(/(\d+)!/g, "factorial($1)"); // Fatorial
 
-      const result = eval(sanitizedExpr);
+      const result = eval(`
+        const factorial = ${factorial.toString()};
+        ${sanitizedExpr}
+      `);
       return Number.isFinite(result) ? result.toString() : "Erro";
-    } catch (error) {
+    } catch {
       return "Erro";
     }
   };
@@ -107,7 +110,7 @@ export default function Calculator() {
               </div>
 
               {/* Grade de Botões */}
-              <div className="grid grid-cols-4 gap-1">
+              <div className="grid grid-cols-4 gap-3">
                 {buttonLayout.flat().map((button, index) => (
                   <Button
                     key={index}
@@ -123,7 +126,7 @@ export default function Calculator() {
                            hover:from-red-400 hover:to-red-500 hover:border-red-300 hover:shadow-red-400/50
                            before:from-red-300/50 before:to-red-500/50`
                         : button === "="
-                        ? `bg-gradient-to-r from-emerald-500/80 to-emerald-600/80 border-emerald-400/50 text-white col-span-2
+                        ? `bg-gradient-to-r from-emerald-500/80 to-emerald-600/80 border-emerald-400/50 text-white
                            hover:from-emerald-400 hover:to-emerald-500 hover:border-emerald-300 hover:shadow-emerald-400/50
                            before:from-emerald-300/50 before:to-emerald-500/50`
                         : [
