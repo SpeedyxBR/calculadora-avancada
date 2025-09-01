@@ -69,7 +69,11 @@ export default function Calculator() {
       setExpression(result !== "Erro" ? result : "");
     } else {
       setExpression((prev) => prev + value);
-      setDisplayValue((prev) => (prev === "0" ? value : prev + value));
+      setDisplayValue((prev) =>
+        prev === "0" || prev === "Erro" || prev.startsWith("Erro:")
+          ? value
+          : prev + value
+      );
     }
   };
 
