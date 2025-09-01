@@ -5,6 +5,14 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
+    // Check if database is available
+    if (!db) {
+      return NextResponse.json({
+        history: [],
+        message: "Database not configured. History is temporarily unavailable.",
+      });
+    }
+
     const history = await db.select().from(calculations);
     return NextResponse.json({ history });
   } catch (error) {
@@ -23,6 +31,14 @@ export async function POST(request: Request) {
 
     if (!expression || !result) {
       return NextResponse.json({ message: "Invalid data" }, { status: 400 });
+    }
+
+    // Check if database is available
+    if (!db) {
+      return NextResponse.json({
+        success: false,
+        message: "Database not configured. Cannot save calculation.",
+      });
     }
 
     const newCalculation = await db

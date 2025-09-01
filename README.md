@@ -60,11 +60,12 @@ Uma calculadora avançada com interface futurística desenvolvida em Next.js, Ty
    npm install
    ```
 
-3. **Configure as variáveis de ambiente**
+3. **Configure as variáveis de ambiente (Opcional)**
 
    ```bash
-   cp .env.example .env.local
-   # Configure suas variáveis de ambiente
+   cp env.example .env.local
+   # Configure DATABASE_URL se quiser histórico persistente
+   # A calculadora funciona perfeitamente sem banco de dados
    ```
 
 4. **Execute o servidor de desenvolvimento**
@@ -157,6 +158,28 @@ npm run build
 # Executar em produção
 npm start
 ```
+
+## 🚀 Deploy
+
+### Deploy Rápido no Netlify
+
+1. **Conecte seu repositório ao Netlify**
+2. **Configure as variáveis de ambiente (opcional):**
+   - `DATABASE_URL`: Para histórico persistente
+   - Se não configurar, a calculadora funciona normalmente com histórico local
+3. **Deploy automático!**
+
+Para instruções detalhadas, veja [DEPLOYMENT.md](./DEPLOYMENT.md)
+
+### Outros Provedores
+
+A aplicação é compatível com:
+
+- ✅ Netlify
+- ✅ Vercel
+- ✅ Railway
+- ✅ Render
+- ✅ Qualquer provedor Node.js
 
 ## 🤝 Contribuição
 
