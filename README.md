@@ -1,4 +1,4 @@
-# 🧮 Calculadora Avançada Futurística
+# 🧮 Calculadora Avançada Futurística 1.0
 
 Uma calculadora avançada com interface futurística desenvolvida em Next.js, TypeScript e Tailwind CSS, oferecendo funcionalidades científicas e um histórico de cálculos.
 
